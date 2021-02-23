@@ -1,0 +1,460 @@
+\lecture{Sazba hladkého textu}{lec:PlainText}
+\subsection{Struktura zdrojového kódu v \LaTeX{}u}
+\begin{frame}
+	\frametitle{Struktura zdrojového kódu v \LaTeX{}u}
+\end{frame}
+
+
+\subsection{Příkazy}
+\begin{frame}
+	\frametitle{Příkazy}
+\end{frame}
+
+
+\subsection{Znaky}
+\begin{frame}[fragile]
+	\frametitle{Znaky}
+	\ParagraphCaption{Sazba \enquote{běžných} znaků}
+	\begin{itemize}
+		\item deklarace správného kódování v balíku |inputenc|,
+		\item vstup znaků přímo z klávesnice,
+		\item nejčastěji užívané kódování UTF-8 řeší většinu problémů,
+		\item ale mohou nastat situace, kdy jej nelze použít.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Znaky -- méně běžné znaky}
+	\begin{itemize}
+		\item Akcentované znaky
+			\begin{center}
+				\begin{tabular}{*{8}{c}}
+					|\'{o}| & \'{o} & |\`{o}| & \`{o} & |\"{o}| & \"{o} & |\H{o}| & \H{o}\\
+					|\v{e}| & \v{e} & |\u{o}| & \u{o} & |\^{o}| & \^{o} & |\~{o}| & \~{o}\\
+					|\c{c}| & \c{c} & |\k{a}| & \k{a} & |\={o}| & \={o} & |\b{o}| & \b{o}\\
+					|\.{c}| & \.{c} & |\d{c}| & \d{c} & |\r{a}| & \r{a} & |\t{oo}| & \t{oo}\\
+				\end{tabular}
+			\end{center}
+		\item Mezinárodní znaky
+			\begin{center}
+				\begin{tabular}{*{8}{c}}
+					|\oe| & \oe & |\OE| & \OE & |\ae| & \ae & |\AE| & \AE\\
+					|\o| & \o & |\O| & \O & |\aa| & \aa & |\AA| & \AA\\
+					|\l| & \l & |\L| & \L & |\ss| & \ss & |\SS| & \SS\\
+				\end{tabular}
+			\end{center}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Znaky -- ostatní symboly}
+		\begin{itemize}
+			\item Standardní \hologo{LaTeX}
+				\begin{center}
+					\begin{tabular}{*{6}{c}}
+						|\copyright| & \copyright & |\S| & \S & |\ldots| & \ldots\\
+						|\textregistered| & \textregistered & |\P| & \P & |\pounds| & \pounds\\
+					\end{tabular}
+				\end{center}
+			\item Externí balíky
+				\begin{center}
+					\begin{tabular}{lcl}
+						|\usepackage{textcomp}| & |\textdegree| & -5\textdegree{}C\\
+						|\usepackage[official]{eurosym}| & |\euro| & \euro{}50\\
+					\end{tabular}
+				\end{center}
+		\end{itemize}
+		\medskip
+		Kompletní přehled symbolů \hologo{LaTeX}u -- \url{http://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-a4.pdf}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Znaky -- ostatní symboly}
+	\begin{center}
+		\begin{tabular}{cll}
+			\textbackslash & zahajuje příkazy & |\textbackslash|\\
+			\{ \} & vymezují skupiny & |\{| a |\}|\\
+			\& & odděluje sloupce tabulky & |\&|\\
+			\% & zahajuje komentář & |\%|\\
+			\textasciitilde & nezlomitelná mezera & |\textasciitilde|\\
+			\$ & zahajuje/ukončuje matemat.\ režim & |\$|\\
+			\# & odkaz na parametr makra & |\#|\\
+			\textasciicircum & horní index & |\textasciicircum|\\
+			\_ & dolní index & |\_|\\
+		\end{tabular}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Znaky aneb nelze pomlčet o pomlčkách}
+	V typografii exsitují tři druhy pomlček:
+	\begin{description}
+		\item[spojovník] -- krátká, silná pomlčka, používaná pro dělení slov, zvratné \enquote{-li} a složená slova
+		\item[pomlčka] -- pomlčka ve větách a
+		\item[dlouhá pomlčka] -- v americké typografii.
+	\end{description}
+	\begin{center}
+		\begin{tabular}{l@{\hspace{3em}}c@{\hspace{3em}}c}
+			Druh pomlčky & & Zápis v \hologo{LaTeX}u\\
+			\hline
+			Spojovník & - & |-|\\
+			Pomlčka & -- & |-||-|\\
+			Dlouhá pomlčka & --- & |-||-||-|\\
+		\end{tabular}
+	\end{center}
+\end{frame}
+
+
+\subsection{Skupiny a prostředí}
+\begin{frame}
+	\frametitle{Skupiny a prostředí}
+\end{frame}
+
+
+\subsection{Odstavce a odřádkování}
+\begin{frame}
+	\frametitle{Odstavce a odřádkování}
+\end{frame}
+
+
+\subsection{Komentáře}
+\begin{frame}[fragile]
+	\frametitle{Komentáře}
+	\begin{itemize}
+		\item Komentáře ve zdrojovém kódu dokumentu zapisujeme pomocí znaku |%|.
+		\item \hologo{LaTeX} ignoruje vše od znaku |%| do konce řádku.
+			\begin{Verbatim}
+Text je běžný text odstavce.
+% Tohle je komentář
+Odstavec pokračuje dál%A tohle je už komentář
+			\end{Verbatim}
+		\item Víceřádkové komentáře standardně neexistují, lze ale použít prostředí |comment| z balíku maker |verbatim|.
+	\end{itemize}
+\end{frame}
+
+
+\subsection{Seznamy}
+\begin{frame}[fragile]
+	\frametitle{Seznamy}
+	\begin{itemize}
+		\item \LaTeX{} zahrnuje tři druhy seznamů:
+			\begin{itemize}
+				\item s odrážkami tj.\ nečíslované,
+				\item číslované a
+				\item s nadpisy.
+			\end{itemize}
+		\item Jednotlivé položky jsou označeny makrem |\item|.
+		\item Seznamy lze vzájemně vnořovat.\par
+		\item Jsou k dispozici, nezávisle na sobě, 4 úrovně nečíslovaných a 4 úrovně číslovaných seznamů.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Seznam s odrážkami}
+	\BVerbatimInput{Samples/ItemizeToInclude.tex}
+	\SamplePdfBox{\includegraphics{Samples/Itemize-crop.pdf}}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Číslovaný seznam}
+	\BVerbatimInput{Samples/EnumerateToInclude.tex}
+	\SamplePdfBox{\includegraphics{Samples/Enumerate-crop.pdf}}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Seznam s nadpisy}
+	\BVerbatimInput{Samples/DescriptionToInclude.tex}
+	\SamplePdfBox{\includegraphics{Samples/Description-crop.pdf}}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Vnořené seznamy -- nečíslované}
+	\centering
+	\begin{tabular}{cc}
+		\SamplePdfBox{\includegraphics{Samples/NestedItemize-crop.pdf}}&
+		\BVerbatimInput[boxwidth=0.6\MaxPdfSampleWidth]{Samples/NestedItemizeToInclude.tex}\\
+	\end{tabular}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Vnořené seznamy -- číslované}
+	\centering
+	\begin{tabular}{cc}
+		\SamplePdfBox{\includegraphics{Samples/NestedEnumerate-crop.pdf}}&
+		\BVerbatimInput[boxwidth=0.65\MaxPdfSampleWidth]{Samples/NestedEnumerateToInclude.tex}\\
+	\end{tabular}
+\end{frame}
+
+
+\subsection{Písmo}
+\begin{frame}
+	\frametitle{Písmo}
+	V současnosti je práce s písmem založena na \emph{New Font Selection Scheme} (NFSS), které definuje čtyři základní charakteristiky písma:
+	\begin{itemize}
+		\item rodina
+		\item duktus
+		\item tvar
+		\item stupeň
+	\end{itemize}
+	Charakteristiky jsou navzájem nezávislé, nastavení písma si lze představit jako bod ve 4D prostoru -- jedna osa je rodina, druhá duktus\ldots
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Písmo}
+	\ParagraphCaption{Rodina (family)}
+	\begin{itemize}
+		\item Určuje základní charakter písma
+		\item Rozlišujeme tři rodiny a jim odpovídající příkazy:
+	\end{itemize}
+	\begin{center}
+		\begin{tabular}{cl}
+			|\rmfamily| & antikva (písmo serifové, anglicky \textrm{RoMan})\\
+			|\sffamily| & grotesk (písmo bezserifové, \textsf{Sans seriF})\\
+			|\ttfamily| & písmo neproporcionální (\texttt{TypewriTer})\\
+		\end{tabular}
+	\end{center}
+	\ParagraphCaption{Duktus (series)}
+	\begin{itemize}
+		\item specifikuje tloušťku jednotlivých tahů v písmu
+	\end{itemize}
+	\begin{center}
+		\begin{tabular}{cl}
+			|\mdseries| & běžné písmo (MeDium)\\
+			|\bfseries| & tučné písmo (\textbf{BoldFace})\\
+		\end{tabular}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Písmo -- tvar (shape)}
+	Specifikuje tvarovou variantu písma
+	\begin{center}
+		\begin{tabular}{cl}
+			|\upshape| & běžné vzpřímené písmo\\
+			|\itshape| & kurzíva (\textit{ITalics})\\
+			|\slshape| & skloněné písmo (\textsl{SLanted})\\
+			|\scshape| & kapitálky (\textsc{Small Capitals})\\
+		\end{tabular}
+	\end{center}
+	\begin{remark}
+		\begin{enumerate}
+			\item Kurzíva, na rozdíl od skloněného písma, nemá jen skloněnou svislou osu, ale má i jinou kresbu písmen, např.\ \textrm{\huge{}a} vs. \textit{\huge{}a}.
+			\item Většina fontů nemá skloněné písmo tj.\ |\slshape| přepne na kurzívu.
+		\end{enumerate}
+	\end{remark}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Písmo -- stupeň (size)}
+	Určuje relativní velikost písma vůči |\normalsize|, která je uvedena v~hlavičce dokumentu.
+	\begin{center}
+		\begin{tabular}{cl}
+			|\tiny| & {\tiny{}nejmenší}\\
+			|\scriptsize| & {\scriptsize{}velikost horního a dolního indexu}\\
+			|\footnotesize| & {\footnotesize{}velikost poznámek pod čarou}\\
+			|\small| & {\small{}malé písmo}\\
+			|\normalsize| & {\normalsize{}normální velikost}\\
+			|\large| & {\large{}větší písmo}\\
+			|\Large| & {\Large{}ještě větší}\\
+			|\LARGE| & {\LARGE{}opravdu velké}\\
+			|\huge| & {\huge{}skoro největší}\\
+			|\Huge| & {\Huge{}největší}\\
+		\end{tabular}
+	\end{center}
+\end{frame}
+
+
+\subsection{Struktura dokumentu}
+\begin{frame}[fragile]
+	\frametitle{Struktura dokumentu}
+	\begin{itemize}
+		\item Většina dokumentů je členěna do hierarchické struktury kapitol, sekcí atd.
+		\item Kapitoly jsou obvykle číslovány, zařazeny do obsahu dokumentu.
+		\item \emph{Nadpisy stejné úrovně musí vypadat stejně}!
+		\item \hologo{LaTeX} poskytuje až 7 úrovní strukturování dokumentu.
+	\end{itemize}
+	Makra mají jednotný tvar
+	\begin{Verbatim}
+\section_macro_name[krátký nadpis]{nadpis}
+	\end{Verbatim}
+	Nepovinný |krátký nadpis| většinou chybí.
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Struktura dokumentu -- makra pro členění dokumentu}
+	\begin{center}
+		\begin{tabular}{clccc}
+			& & \multicolumn{3}{c}{Třída dokumentu}\\
+			Úroveň & Makro & |article| & |report| & |book|\\
+			\hline
+			-1 & |\part| & \XSolidBrush & \multicolumn{2}{c}{volitelně}\\
+			 0 & |\chapter| & \XSolidBrush & \Checkmark & \Checkmark \\
+			 1 & |\section| & \Checkmark & \Checkmark & \Checkmark\\
+			 2 & |\subsection| & \Checkmark & \Checkmark & \Checkmark\\
+			 3 & |\subsubsection| & \Checkmark & \Checkmark & \Checkmark \\
+			 4 & |\paragraph| & \Checkmark & \Checkmark & \Checkmark\\
+			 5 & |\subparagraph| & \Checkmark & \Checkmark & \Checkmark\\
+		\end{tabular}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Struktura dokumentu -- funkcionalita maker}
+	Makra pro sazbu kapitol provádí celou řadu činností:
+	\begin{enumerate}
+		\item Vygeneruje číslo dané části textu. V hierarchii kapitol se \emph{nesmí přeskakovat} -- vynecháním úrovně dostaneme v~číslování kapitol nuly!
+		\item Vysází číslo kapitoly a |nadpis| stylem odpovídajícím dané úrovni nadpisu. Styl definuje písmo, místo před nadpisem, za nadpisem, přechod na na novou stránku atd.
+		\item Vloží číslo kapitoly, |nadpis| a číslo stránky do obsahu.Pokud je uveden |krátký nadpis| je do obsahu vložen |krátký nadpis|. V textu je pochopitelně ale vysázen |nadpis|.
+		\item Upraví záhlaví stránky, pokud je použito tzv.\ živé záhlaví. I~zde se přednostně uplatní |krátký nadpis|.
+	\end{enumerate}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Struktura dokumentu -- omezené verze maker}
+	Ke všem makrům od |\part| po |\subparagraph| existují omezené verze
+	\begin{Verbatim}
+\section_macro_name*{nadpis}
+	\end{Verbatim}
+	Tato makra provedou pouze krok 2 z předchozího seznamu -- vysází |nadpis| požadovaným stylem.
+	\begin{example}
+		Předmluva v knize -- chceme nadpis \enquote{Předmluva} vysázet jako kapitolu, ale není nutné aby byla v obsahu.
+	\begin{Verbatim}
+\chapter*{Předmluva}
+Vážení čtenáři dostává se Vám do rukou...
+	\end{Verbatim}
+	\end{example}
+\end{frame}
+
+
+\subsection{Obsah dokumentu}
+\begin{frame}[allowframebreaks, fragile]
+	\frametitle{Obsah dokumentu}
+	\begin{itemize}
+		\item Na požadované místo v dokumentu uvedeme makro |\tableofcontents|.
+		\item Položky obsahu se automaticky vytvoří z nadpisů použitých v makrech pro členění dokumentu.
+		\item Obsah dokumentu je sestavován v pomocném |toc| souboru, který obsahuje nadpisy kapitol, jejich čísla a čísla odpovídajících stran.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks, fragile]
+	\frametitle{Sestavení obsahu dokumentu}
+	Vytvoření obsahu vyžaduje \emph{nejméně dva překlady} \hologo{LaTeX}em:
+	\begin{description}
+		\item [1. překlad] -- |toc| soubor neexistuje, makro |\tableofcontents| vytvoří jen nadpis \enquote{Obsah}. Při překladu dokumentu je postupně vytvářen |toc| soubor.
+		\item [2. překlad] -- makro |\tableofcontents| načte |toc| soubor vytvořený při předchozím překladu a sestaví z něj obsah dokumentu. Nicméně |toc| soubor je vytvářen i~v~tomto překladu.
+	\end{description}
+	\begin{remarks}
+		\begin{enumerate}
+			\item Je zřejmé, že vytváření obsahu je zpožděno o \enquote{jedno kolo} za textem dokumentu.
+			\item Pokud chceme obsah aktualizovat, např.\ po změně nadpisu, musíme opět provést dva překlady.
+			\item V závislosti na umístění obsahu dokumentu může být nutný i třetí překlad. Pokud je obsah umístěn před samotným textem dokumentu, může dojít vložením obsahu dokumentu k posunutí čísel stran.
+		\end{enumerate}
+	\end{remarks}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks, fragile]
+	\frametitle{Seznam obrázků a tabulek}
+	Do dokumentu lze vložit také
+	\begin{itemize}
+		\item seznam obrázků -- |\listoffigures| a
+		\item seznam tabulek -- |\listoftables|.
+	\end{itemize}
+	Seznam obrázků a tabulek vzniká zcela identickým mechanismem jako obsah dokumentu s tím rozdílem, že:
+	\begin{itemize}
+		\item položky obou seznamů se berou z maker |\caption| v~prostředí |figure|, respektive |table| a
+		\item místo |toc| souboru se používají |lof| (list of figures) a |lot| (list of tables) soubory.
+	\end{itemize}
+\end{frame}
+
+
+\subsection{Křížové odkazy}
+\begin{frame}
+	\frametitle{Křížové odkazy}
+\end{frame}
+
+
+\subsection{Poznámky}
+\begin{frame}[fragile]
+	\frametitle{Poznámky -- poznámky pod čarou}
+	\BVerbatimInput{Samples/FootnoteSampleToInclude.tex}
+	\SamplePdfBox{\includegraphics{Samples/FootnoteSample-crop.pdf}}
+	\begin{remark}
+		Pokud nelze vytvořit poznámku pod čarou přímo (např.\ v~tabulkách) použijeme |\footnotemark| pro sazbu značky a~následně |\footnotetext{text poznámky}| pro vlastní sazbu poznámky.
+	\end{remark}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Poznámky -- poznámky na okraji}
+	\BVerbatimInput{Samples/MarginparnoteSampleToInclude.tex}
+	\SamplePdfBox{\includegraphics{Samples/MarginparnoteSample-crop.pdf}}
+	Poznámka na okraji se sází na boční okraj vedle řádku na kterém se objevil příkaz |\marginpar|.
+	U jednostranné sazby se poznámka vysází na pravý okraj, u oboustranné na vnější okraje.
+\end{frame}
+
+
+\subsection{Třídy dokumentů}
+\begin{frame}
+	\frametitle{Třídy dokumentů}
+\end{frame}
+
+
+\subsection{Externí balíky}
+\begin{frame}
+	\frametitle{Externí balíky}
+\end{frame}
+
+
+\subsubsection{Podpora češtiny}
+\begin{frame}
+	\frametitle{Podpora češtiny}
+\end{frame}
+
+
+\subsubsection{Hypertextové odkazy}
+\begin{frame}
+	\frametitle{Hypertextové odkazy}
+\end{frame}
+
+
+\subsubsection{Uvozovky}
+\begin{frame}
+	\frametitle{Uvozovky}
+\end{frame}
+
+
+\subsubsection{Užitečné balíky maker}
+\begin{frame}
+	\frametitle{Užitečné balíky maker}
+	enumitem -- změna vzhledu seznamů
+\end{frame}
+
+
+\subsection{Časté chyby}
+\begin{frame}
+	\frametitle{Časté chyby}
+\end{frame}
+
+
+\subsection{Správa velkých projektů}
+\begin{frame}
+	\frametitle{Správa velkých projektů}
+\end{frame}
+
+\endinput

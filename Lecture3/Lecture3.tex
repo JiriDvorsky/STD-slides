@@ -1,0 +1,474 @@
+\lecture{Sazba matematiky}{lec:Mathematics}
+\begin{frame}
+	\frametitle{Sazba matematiky}
+	\begin{itemize}
+		\item Matematická sazba je integrální součástí \TeX{}u -- nekvalitní matematická sazba byla i jednou z příčin jeho vzniku.
+		\item \LaTeX{} ke schopnostem \TeX{}u přidává několik zastřešujících konstrukcí.
+		\item Matematika je v \LaTeX{}u zapisována pomocí speciální syntaxe, která je navržena
+			\begin{enumerate}
+				\item pro pohodlný vstup z klávesnice a
+				\item pro snadné čtení zdrojového kódu dokumentu.
+			\end{enumerate}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Sazba matematiky -- první ukázka}
+	\BVerbatimInput[boxwidth=\MaxPdfSampleWidth]{Samples/MathSampleToInclude1.tex}
+	\SamplePdfBox{\includegraphics[width=\MaxPdfSampleWidth]{Samples/MathSample1-crop.pdf}}
+\end{frame}
+
+
+\subsection{Režimy sazby matematiky}
+\begin{frame}
+	\frametitle{Režimy sazby matematiky}
+	Sazba matematiky probíhá ve dvou režimech:
+	\begin{description}
+		\item [inline] -- matematické formule jsou součástí odstavce; sazba je kompaktní ve svislém směru aby co nejméně ovlivňovala samotný odstavec.
+		\item [display] -- formule jsou sázeny na střed na samostatné řádky.
+	\end{description}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Inline režim}
+	\BVerbatimInput[boxwidth=\MaxPdfSampleWidth]{Samples/MathSampleToInclude2.tex}
+	\SamplePdfBox{\includegraphics[width=\MaxPdfSampleWidth]{Samples/MathSample2-crop.pdf}}
+	Pro označení lze použít:
+	\begin{itemize}
+		\item prostředí |math|, čili konstrukci |\begin{math}|\ldots|\end{math}|
+		\item dvojici znaků |\(| před a dvojici znaků |\)| za vzorcem
+		\item jeden znak |$| před a jeden znak |$| za vzorcem.
+	\end{itemize}
+	Všechny tři způsoby jsou navzájem ekvivaletní.
+\end{frame}
+
+
+\begin{frame}[allowframebreaks, fragile]
+	\frametitle{Display režim}
+	\BVerbatimInput[boxwidth=\MaxPdfSampleWidth]{Samples/MathSampleToInclude3.tex}
+	\SamplePdfBox{\includegraphics[width=\MaxPdfSampleWidth]{Samples/MathSample3-crop.pdf}}
+	\framebreak
+	Display režim má dvě formy:
+	\begin{description}
+		\item [nečíslovanou] -- pro označení lze použít prostředí |displaymath| nebo |\[|\ldots|\]| či |$$|\ldots|$$|
+		\item [číslovanou] -- prostředí |equation|.
+	\end{description}
+\end{frame}
+
+
+\subsection{Řecká písmena a matematické symboly}
+\begin{frame}
+	\frametitle{Zápis matematické symboliky}
+	V matematických formulích se vyskytují symboly, které není možné zapsat přímo z klávesnice. Tyto symboly se zapisují pomocí speciálních maker. Jde především o tyto symboly:
+	\begin{itemize}
+		\item řecká písmena,
+		\item šipky,
+		\item binární a relační operátory a
+		\item některé další symboly.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Řecká písmena}
+	\begin{center}
+		\begin{tabular}{clcl}
+			$\alpha A$ &|\alpha A| & $\nu N$ & |\nu N|\\
+			$\beta B$ & |\beta B| & $\xi \Xi$ & |\xi \Xi|\\
+			$\gamma \Gamma$ & |\gamma \Gamma| & $oO$ & |o O|\\
+			$\delta \Delta$ & |\delta \Delta| & $\pi \Pi$ & |\pi \Pi|\\
+			$\epsilon \varepsilon E$ & |\epsilon \varepsilon E| & $\rho \varrho P$ & |\rho\varrho P|\\
+			$\zeta Z$ & |\zeta Z| & $\sigma \Sigma$ & |\sigma \Sigma|\\
+			$\eta H$ & |\eta H| & $\tau T$ & |\tau T|\\
+			$\theta \vartheta \Theta$ & |\theta \vartheta \Theta| & $\upsilon \Upsilon$ & |\upsilon \Upsilon|\\
+			$\iota I$ & |\iota I| & $\phi \varphi \Phi$ & |\phi \varphi \Phi|\\
+			$\kappa K$ & |\kappa K| & $\chi X$ & |\chi X|\\
+			$\lambda \Lambda$ & |\lambda \Lambda| & $\psi \Psi$ & |\psi \Psi|\\
+			$\mu M$ & |\mu M| & $\omega \Omega$ & |\omega \Omega|\\
+		\end{tabular}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Šipky}
+	\begin{center}
+		\begin{tabular}{clcl}
+			$\leftarrow$ & |\leftarrow| & $\Leftarrow$ & |\Leftarrow|\\
+			$\rightarrow$ & |\rightarrow| & $\Rightarrow$ & |\Rightarrow|\\
+			$\leftrightarrow$ & |\leftrightarrow| & $\rightleftharpoons$ & |\rightleftharpoons|\\
+			$\uparrow$ & |\uparrow| & $\downarrow$ & |\downarrow|\\
+			$\Uparrow$ & |\Uparrow| & $\Downarrow$ & |\Downarrow|\\
+			$\Leftrightarrow$ & |\Leftrightarrow| & $\Updownarrow$ & |\Updownarrow|\\
+			$\mapsto$ & |\mapsto| & $\longmapsto$ & |\longmapsto|\\
+			$\nearrow$ & |\nearrow| & $\searrow$ & |\searrow|\\
+			$\swarrow$ & |\swarrow| & $\nwarrow$ & |\nwarrow|\\
+			$\leftharpoonup$ & |\leftharpoonup| & $\rightharpoonup$ & |\rightharpoonup|\\
+			$\leftharpoondown$ & |\leftharpoondown| & $\rightharpoondown$ & |\rightharpoondown|\\		
+		\end{tabular}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Binární a relační operátory}
+	\begin{center}
+		\begin{tabular}{clcl}
+			$\times$ & |\times| & $\cdot$ & |\cdot|\\
+			$\div$ & |\div| & $\cap$ & |\cap|\\
+			$\cup$ & |\cup| & $\neq$ & |\neq|\\
+			$\leq$ & |\leq| & $\geq$ & |\geq|\\
+			$\in$ & |\in| & $\perp$ & |\perp|\\
+			$\notin$ & |\notin| & $\subset$ & |\subset|\\
+			$\simeq$ & |\simeq| & $\approx$ & |\approx|\\
+			$\wedge$ & |\wedge| & $\vee$ & |\vee|\\
+			$\oplus$ & |\oplus| & $\otimes$ & |\otimes|\\
+			$\Box$ & |\Box| & $\boxtimes$ & |\boxtimes|\\
+			$\equiv$ & |\equiv| & $\cong$ & |\cong|\\
+		\end{tabular}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Ostatní symboly}
+	\begin{center}
+		\begin{tabular}{clcl}
+			$\infty$ & |\infty| & $\forall$ & |\forall|\\
+			$\exists$ & |\exists| & $\nexists$ & |\nexists|\\
+			$\emptyset$ & |\emptyset| & $\neg$ & |\neg|\\
+			$\ldots$ & |\ldots| & $\cdots$ & |\cdots|\\
+			$\vdots$ & |\vdots| & $\ddots$ & |\ddots|\\
+			$\nabla$ & |\nabla| & $\partial$ & |\partial|\\
+			$\square$ & |\square| & $\surd$ & |\surd|\\
+			$\blacksquare$ & |\blacksquare| & $\triangle$ & |\triangle|\\
+		\end{tabular}
+	\end{center}
+\end{frame}
+
+
+\subsection{Horní a dolní indexy}
+\begin{frame}[allowframebreaks, fragile]
+	\frametitle{Horní a dolní indexy}
+	\begin{columns}
+		\begin{column}{0.3\textwidth}
+			Zápis indexů:
+			\begin{itemize}
+				\item horní |^|
+				\item dolní |_|
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.65\textwidth}
+			\begin{center}
+				|$$\int\limits_0^1 x^2 + y^2 \ dx $$|
+			\end{center}
+			$$\int\limits_0^1 x^2 + y^2 \ dx$$
+		\end{column}
+	\end{columns}
+	Horní a dolní indexy lze kombinovat\par
+		|$$a_1^2 + a_2^2 = a_3^2$$|
+	$$a_1^2 + a_2^2 = a_3^2$$
+	\par\framebreak
+	Pokud je index tvořen více znaky je nutné jej uzavřít do skupiny\par
+	|$$x^{2\alpha} - 1 = y_{ij} + y_{ij}$$|
+	$$x^{2\alpha} - 1 = y_{ij} + y_{ij}$$
+	Indexy lze různě kombinovat\par
+	|$$(a^n)^{r+s} = a^{nr+ns}$$|
+	$$(a^n)^{r+s} = a^{nr+ns}$$
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Horní a dolní indexy -- dvojitý index}
+		Horní či dolní index se vždy musí vztahovat k jednoduchému elementu, složitější matematické výrazy musí být uzavřeny do závorek nebo do skupiny.
+		\begin{example}
+			\begin{itemize}
+				\item Výraz $a^{b^c}$ musíme zapsat jako |a^{b^c}| nebo |{a^b}^c|.
+				\item Zápis |a^b^c| způsobí chybu, protože |a^b| již není jednoduchý element.
+				\item Stejně tak $a_{b_c}$ musíme zapsat jako |a_{b_c}| nebo |{a_b}_c|, zápis |a_b_c| způsobí chybu.
+			\end{itemize}
+		\end{example}
+\end{frame}
+
+
+\subsection{Závorky}
+\begin{frame}[fragile]
+	\frametitle{Závorky}
+	\ParagraphCaption{Běžně dostupné typy závorek}
+	\begin{center}
+		\begin{tabular}{lcc}
+			Kulaté & \Verb{(x+y)} & $(x+y)$ \\
+			Hranaté & \Verb{[x+y]} & $[x+y]$ \\
+			Složené & \Verb{\{ x+y \}} & $\{x+y\}$ \\
+			Ostré & \Verb{\langle x+y \rangle} & $\langle x+y \rangle$ \\
+			Svislé & \UndefineShortVerb{\|}\Verb{|x+y|} & \UndefineShortVerb{\|}$|x+y|$ \\
+			Dvojité svislé & \UndefineShortVerb{\|}\Verb{\| x+y \|} & \UndefineShortVerb{\|}$\|x+y\|$ \\
+		\end{tabular}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Závorky -- automatická změna velikosti}
+	Automatická změna velikosti pomocí |\left| a |\right|
+	|$$F = G \left( \frac{m_1 m_2}{r^2} \right)$$|
+	$$F = G \left( \frac{m_1 m_2}{r^2} \right)$$
+	Výsledek sazby bez |\left| a |\right|
+	$$F = G ( \frac{m_1 m_2}{r^2} )$$
+	Vícenásobná změna velikosti
+	|$$\left[\frac{N}{\left(\frac{L}{p}\right)-(m+n)}\right]$$|
+	$$\left[\frac{N}{\left(\frac{L}{p}\right)-(m+n)}\right]$$
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Závorky -- automatická změna velikosti u víceřádkových rovnic}
+	Makra |\left| a |\right| \emph{musí být spárována} na:
+	\begin{itemize}
+		\item každém řádku rovnice a zároveň
+		\item na každé straně oddělovače |&|.
+	\end{itemize}
+	Neviditelné závorky |\left.| a |\right.|\par
+	\begin{BVerbatim}
+\begin{align*}
+y = 1 + & \left(\frac{1}{x}+\frac{1}{x^2}+\cdots \right.\\
+& \cdots \left. +\frac{1}{x^{n-1}}+\frac{1}{x^n}\right)
+\end{align*}
+	\end{BVerbatim}
+	\begin{align*}
+		y  = 1 + & \left(  \frac{1}{x} + \frac{1}{x^2} + \cdots \right. \\
+  		& \cdots \left. + \frac{1}{x^{n-1}} + \frac{1}{x^n} \right)
+	\end{align*}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Závorky -- manuální změna velikosti}
+	Manuálně je možné měnit velikost závorek pomocí maker |\big|.
+	|$$\bigg( 3x+7 \big)$$|
+	$$\bigg( 3x+7 \big)$$
+	|$$\big( \Big( \bigg( \Bigg($$|
+	$$\big( \Big( \bigg( \Bigg($$
+	\begin{remark}
+		Všechny velikosti závorek nemusí být dostupné ve všech fontech, některé velikosti závorek můžou splývat.
+	\end{remark}
+\end{frame}
+
+
+\subsection{Matice}
+\begin{frame}[fragile]
+	\frametitle{Matice}
+	Sazba matic se skládá
+	\begin{itemize}
+		\item z mřížky prvků, kde
+			\begin{itemize}
+				\item prvky v matici zadáváme po řádcích,
+				\item jednotlivé prvky oddělujeme znakem |&|,
+				\item konec řádku označujeme dvojicí |\\|.
+			\end{itemize}
+		\item ze specifikace ohraničení matice -- ohraničení může a~nemusí existovat.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks=0.8, fragile]
+	\newcommand{\MatrixSample}[1]
+	{
+		\begin{columns}
+			\begin{column}{0.25\textwidth}
+				\begin{displaymath}
+					\input{#1}
+				\end{displaymath}
+			\end{column}
+			\begin{column}{0.4\textwidth}
+				\BVerbatimInput[boxwidth=0.33\MaxPdfSampleWidth]{#1}
+			\end{column}
+		\end{columns}
+	}
+	\frametitle{Matice -- základní možnosti ohraničení}
+	\begin{description}
+		\item [Bez ohraničení]\mbox{}\MatrixSample{Samples/PlainMatrix.tex}\bigskip
+		\item [Kulaté závorky]\mbox{}\MatrixSample{Samples/RoundBracketsMatrix.tex}
+		\item [Hranaté závorky]\mbox{}\MatrixSample{Samples/SquareBracketsMatrix.tex}\bigskip
+		\item [Složené závorky]\mbox{}\MatrixSample{Samples/CurlyBracketsMatrix.tex}
+		\item [Jednoduché svislice]\mbox{}\MatrixSample{Samples/PipesMatrix.tex}\bigskip
+		\item [Dvojité svislice]\mbox{}\MatrixSample{Samples/DoublePipesMatrix.tex}
+	\end{description}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Matice -- speciální případy ohraničení}
+	Ve speciálních případech vysázíme matici bez ohraničení a~ohraničení doplníme pomocí samostatných konstrukcí \LaTeX{}u.\bigskip
+	\begin{columns}
+		\begin{column}{0.25\textwidth}
+			\begin{displaymath}
+				\input{Samples/CeilBracketsMatrix.tex}
+			\end{displaymath}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\BVerbatimInput[boxwidth=0.33\MaxPdfSampleWidth]{Samples/CeilBracketsMatrix.tex}
+		\end{column}
+	\end{columns}
+	\bigskip
+	\begin{columns}
+		\begin{column}{0.25\textwidth}
+			\begin{displaymath}
+				\input{Samples/AngleBracketsMatrix.tex}
+			\end{displaymath}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\BVerbatimInput[boxwidth=0.33\MaxPdfSampleWidth]{Samples/AngleBracketsMatrix.tex}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Matice -- výpustky}
+	Pro sazbu velkých matic lze využít \emph{výpustky}\par\bigskip
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\begin{displaymath}
+				\input{Samples/MatrixEllipsis.tex}
+			\end{displaymath}
+		\end{column}
+		\begin{column}{0.6\textwidth}
+			\BVerbatimInput{Samples/MatrixEllipsis.tex}
+		\end{column}
+	\end{columns}
+	\begin{remark}
+		Výpustky lze vuužít i mimo zápis matic, nejčastěji asi |\cdots|, například |$$1 + 2 + \cdots + (n-1) + n$$|, $$1 + 2 + \cdots + (n-1) + n$$
+	\end{remark}
+\end{frame}
+
+
+\subsection{Zlomky a binomické koeficienty}
+\begin{frame}
+	\frametitle{Zlomky a binomické koeficienty}
+\end{frame}
+
+
+\subsection{Názvy funkcí, operátory}
+\begin{frame}[fragile]
+	\frametitle{Názvy funkcí}
+	Matematika se typicky sází kurzívou, existují však výjimky -- například jména funkcí se sází vzpřímeným písmem.\par
+	|$$\sin(a + b) = \sin(a)\cos(b) + \cos(a)\sin(b)$$|
+	$$\sin(a + b) = \sin(a)\cos(b) + \cos(a)\sin(b)$$
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Operátory}
+	Pro operátory, například limitu, platí obdobná konvence. Sazba však může záviset i na dalších parametrech.
+	\par\bigskip
+	\BVerbatimInput{Samples/LimitOperator.tex}
+	\par\bigskip
+	\input{Samples/LimitOperator.tex}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Přehled často užívaných funkcí a operátorů}
+	\begin{center}
+		\begin{tabular}{clcl}
+			$\arcsin$ & |\arcsin| & $\arctan$ & |\arctan|\\
+			$\arg$ & |\arg| & $\cos$ & |\cos|\\
+			$\gcd$ & |\gcd| & $\lim$ & |\lim|\\
+			$\ln$ & |\ln| & $\log$ & |\log|\\
+			$\max$ & |\max| & $\min$ & |\min|\\
+			$\sin$ & |\sin| & $\tan$ & |\tan|\\
+		\end{tabular}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Deklarace nových operátorů}
+	V případě potřeby lze definovat nový operátor makrem |\DeclareMathOperator{jméno}{sazba}|,\\kde |jméno| je označení nového operátoru a |sazba| je zdrojový kód, který vysází nový operátor.
+	\begin{example}
+		V české sazbě se pro funkci tangens používá označení \emph{tg}.\\
+		Definice:\\
+		|\DeclareMathOperator{\tg}{tg}|\\
+		Použití:\\
+		|$$y = \tg x$$|
+		$$y = \tg x$$
+	\end{example}
+\end{frame}
+
+
+\subsection{Integrály, sumy a limity}
+\begin{frame}
+	\frametitle{Integrály, sumy a limity}
+\end{frame}
+
+
+\subsection{Matematické fonty}
+\begin{frame}
+	\frametitle{Matematické fonty}
+\end{frame}
+
+
+\subsection{Sazba definic a vět}
+\begin{frame}[fragile]
+	\frametitle{Sazba definic a vět}
+	\begin{itemize}
+		\item Matematické dokumenty zahrnují definice, věty, důkazy atd., které vyžadují speciální formátování a číslování.
+		\item Číslování by mělo probíhat automaticky, formátování by daný prvek matematické sazby (definice, věta, \ldots) mělo být jednotné.
+		\item Prostředky pro jejich pohodlnou sazbu poskytuje balík |amsthm|.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks, fragile]
+	\frametitle{Sazba definic a vět -- nové prostředí}
+	\begin{BVerbatim}
+\newtheorem{prostředí}{popisek}[počítadlo]
+	\end{BVerbatim}
+	\begin{itemize}
+		\item |prostředí| je jméno nově definovaného prostředí a
+		\item |popisek| je text, který bude vysázen před textem definice, věty\ldots
+		\item |počítadlo| je nadřazené počítadlo; při každé změně hodnoty |počítadlo| se resetuje individuální počítadlo |prostředí|.
+	\end{itemize}
+	\begin{example}
+		|\newtheorem{theorem}{Věta}[section]|
+	\end{example}
+	\framebreak
+	Pokud použijeme |newtheorem| bez nadřazeného počítadla, tj.\ |\newtheorem{prostředí}{popisek}|, bude se |prostředí| číslovat průběžně v celém dokumentu.\par
+	Existuje i zcela nečíslovaná varianta 
+	\begin{BVerbatim}
+\newtheorem*{prostředí}{popisek}
+	\end{BVerbatim}
+	\begin{example}
+		|\newtheorem*{remark}{Remark}|
+	\end{example}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks, fragile]
+	\frametitle{Sazba definic a vět -- ukázková prostředí}
+	\begin{BVerbatim}
+\newtheorem{definition}{Definice}[section]
+\newtheorem{theorem}{Věta}[section]
+\newtheorem{corollary}{Důsledek}[theorem]
+\newtheorem*{remark}{Poznámka}
+	\end{BVerbatim}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Prostředí pro sazbu definic -- ukázka}
+	\BVerbatimInput[boxwidth=\MaxPdfSampleWidth]{Samples/DefinitionToInclude.tex}
+	\SamplePdfBox{\includegraphics[width=\MaxPdfSampleWidth]{Samples/Definition-crop.pdf}}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks, fragile]
+	\frametitle{Prostředí pro sazbu vět -- ukázka}
+	\BVerbatimInput[boxwidth=\MaxPdfSampleWidth]{Samples/TheoremToInclude.tex}
+	\SamplePdfBox{\includegraphics[width=\MaxPdfSampleWidth]{Samples/Theorem-crop.pdf}}
+\end{frame}
+
+\endinput

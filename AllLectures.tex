@@ -1,0 +1,127 @@
+\documentclass[czech]{beamer}
+\usepackage{cmap}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{notomath}
+\usepackage[euler]{textgreek}
+\usepackage{fvextra}
+\usepackage{fancyvrb-ex}
+\usepackage{tcolorbox}
+\usepackage{bbding}
+\usepackage{hologo}
+\usepackage[czech=quotes]{csquotes}
+\usepackage{pgfplots}
+\usepackage{url}
+\usepackage[official]{eurosym}
+
+\hologoLogoSetup{plainTeX}{variant=runtogether}
+\newcommand{\Beamer}{\textsc{\mbox{Beamer}}}
+\newcommand{\biblatex}{\mbox{biblatex}}
+
+\usetheme[numbering=fraction, sectionpage=none, subsectionpage=none, block=fill]{metropolis}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{frametitle continuation}[from second][(pokrač.)]
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+\renewcommand{\emph}[1]{\textbf{#1}}
+
+\DeclareMathOperator{\tg}{tg}
+
+\definecolor{CornellRed}{HTML}{B31B1B}
+
+\newlength{\SampleBoxMargin}
+\setlength{\SampleBoxMargin}{1mm}
+
+\newlength{\MaxPdfSampleWidth}
+\setlength{\MaxPdfSampleWidth}{\textwidth}
+\addtolength{\MaxPdfSampleWidth}{-2\SampleBoxMargin}
+
+\fvset{fontsize=\footnotesize, formatcom=\color{CornellRed}, boxwidth=\MaxPdfSampleWidth}
+\DefineShortVerb{\|}
+
+\newtcbox{\SourceCodeBox}{boxrule=0.3pt, sharp corners=all, boxsep=0mm, left=\SampleBoxMargin, right=\SampleBoxMargin, bottom=\SampleBoxMargin, top=\SampleBoxMargin}
+
+\newtcbox{\SamplePdfBox}{colback=white, boxrule=0.3pt, sharp corners=all, boxsep=0mm, left=\SampleBoxMargin, right=\SampleBoxMargin, bottom=\SampleBoxMargin, top=\SampleBoxMargin}
+
+\newcommand{\ParagraphCaption}[1]{\emph{#1}}
+
+\newenvironment<>{remark}
+{
+	\begin{block}#1{\translate{Remark}}
+}
+{
+	\end{block}
+}
+
+\newenvironment<>{remarks}
+{
+	\begin{block}#1{\translate{Remarks}}
+}
+{
+	\end{block}
+}
+
+\makeatletter
+\AtBeginLecture
+{
+	\title[\beamer@shortlecturename]{\beamer@lecturename}%
+	\date{}
+	\section{\beamer@lecturename}
+	\frame{\titlepage}
+}
+\makeatother
+
+\newcommand{\ThanksAttentionPage}{\begin{frame}[standout]Děkuji za pozornost\end{frame}}
+
+\author[Jiří Dvorský]{doc.\ Mgr.\ Jiří Dvorský, Ph.D.}
+\institute[VŠB -- TUO]{Katedra informatiky\\ Fakulta elektrotechniky a informatiky\\ VŠB -- TU Ostrava}
+\title{Sazba technických dokumentů}
+\date[]{Prezentace ke dni \today}
+%\titlegraphic{\mbox{\hspace{-0.2in}\includegraphics[height=15mm]{Figures/MSMT_EU_Logolink.jpeg}}\vspace*{0.2in}}
+\titlegraphic{\mbox{\hspace{-0.2in}\includegraphics[height=20mm]{Figures/460-FEI-CZ.pdf}}\vspace*{0.2in}}
+
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{Aktuální verze prezentací}
+	Prezentace jsou průběžně, podle potřeb výuky, doplňovány a~aktualizovány. Aktuální verzi prezentací najdete vždy na webu předmětu
+	\begin{center}
+		\url{www.cs.vsb.cz/dvorsky/STD.html}
+	\end{center}
+\end{frame}
+
+\begin{frame}[t,allowframebreaks]
+	\frametitle{Celková osnova všech lekcí}
+	\tableofcontents[subsectionstyle=show, subsubsectionstyle=hide]
+\end{frame}
+
+\input{Lecture1/Lecture1.tex}
+\ThanksAttentionPage
+
+\input{Lecture2/Lecture2.tex}
+\ThanksAttentionPage
+
+\input{Lecture3/Lecture3.tex}
+\ThanksAttentionPage
+
+\input{Lecture4/Lecture4.tex}
+\ThanksAttentionPage
+
+\input{Lecture5/Lecture5.tex}
+\ThanksAttentionPage
+
+\input{Lecture6/Lecture6.tex}
+\ThanksAttentionPage
+
+\input{Lecture7/Lecture7.tex}
+\ThanksAttentionPage
+
+\end{document}
+

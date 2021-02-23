@@ -1,0 +1,340 @@
+\lecture{Základní principy \hologo{LaTeX}u}{lec:BasicPrinciples}
+
+\subsection{Co je \hologo{LaTeX}}
+\begin{frame}
+	\frametitle{Co je \hologo{LaTeX}}
+	\begin{itemize}
+		\item \hologo{LaTeX} (v češtině vyslovujeme jako \enquote{latech}) je nástroj pro přípravu profesionálně vyhlížejících dokumentů (\emph{document preparation system}).
+		\item \hologo{LaTeX} je založen na \emph{WYSIWYM} (What You See Is What You Mean) přístupu -- autor se soustředí na obsah dokumentu, sazeč a počítač se starají o vzhled dokumentu.
+	\end{itemize}
+	\begin{example}
+		Bakalářská práce -- Vy píšete text práce, kreslíte schémata, sestavujete tabulky. Na FEI existuje \enquote{šablona} pro \hologo{LaTeX}, kterou sestavil \enquote{sazeč}, který stanovil rozměry textu, písmo, vzhled nadpisů, pořadí stránek a tak dále.
+	\end{example}
+\end{frame}
+
+{
+	\usebackgroundtemplate
+	{
+		\begin{tikzpicture}[remember picture, overlay]
+			\node at (current page.center) {\includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio]{Lecture1/Figures/LL.pdf}};
+		\end{tikzpicture}
+	}
+	\begin{frame}
+	\end{frame}
+}
+
+
+\begin{frame}
+	\frametitle{Co je \hologo{TeX}}
+	\begin{itemize}
+		\item \hologo{TeX} je program pro počítačovou sazbu (\emph{computer typesetting system}).
+
+		\item \hologo{TeX} vyslovujeme jako \enquote{tech}. Tři písmena v názvu jsou řecká \enquote{tau-epsilon-chí}. Odvozeno od řeckého \texttau\textepsilon\textchi\textnu\texteta{} [techné], \enquote{umění}, \enquote{dovednost}.
+
+		\item První verze \hologo{TeX}u pochází roku 1978, aktuální 3.14159265 z~března 2014.
+
+		\item Zatímco \hologo{LaTeX} je formát dokumentu, \emph{značkovací jazyk}, \hologo{TeX} je \emph{kompilátor}, který překládá zdrojové kódy zapsané v \hologo{LaTeX}u do cílového jazyka, například Pdf.
+	\end{itemize}
+\end{frame}
+
+
+{
+	\usebackgroundtemplate
+	{
+		\begin{tikzpicture}[remember picture, overlay]
+			\node at (current page.center) {\includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio]{Lecture1/Figures/DEK.pdf}};
+		\end{tikzpicture}
+	}
+	\begin{frame}
+	\end{frame}
+}
+
+
+\begin{frame}
+	\frametitle{\hologo{TeX}, \hologo{LaTeX} a okolí}
+	\begin{description}
+		\item[\hologo{LaTeX}] -- značkovací jazyk (obdoba: jazyk HTML)
+		\item[\hologo{TeX}] -- překladač (obdoba: renderovací jádro, lze jich mít víc)
+		\item[\hologo{pdfTeX}] -- překladač s přímým výstupem do Pdf,
+		\item[\hologo{pdfLaTeX}] -- překladač jazyka \hologo{LaTeX}, postavený nad \hologo{pdfTeX}em
+		\item[další překladače]\mbox{}
+			\begin{itemize}
+				\item \hologo{XeTeX} -- nativní podpora UTF-8, přístup k~systémovým fontům,
+				\item \hologo{LuaTeX} -- integrace skriptovacího jazyka Lua.
+			\end{itemize}
+		\item[další programy]\mbox{}
+			\begin{itemize}
+				\item \hologo{biber}, \hologo{BibTeX} -- zpracování bibliografie,
+				\item MakeIndex, xindy -- zpracování rejstříků.
+			\end{itemize}
+	\end{description}
+\end{frame}
+
+
+\subsection{Proč se učit \hologo{LaTeX}}
+\begin{frame}
+	\frametitle{Proč se učit \hologo{LaTeX}}
+	\begin{columns}[t]
+		\begin{column}{0.45\textwidth}
+			\begin{block}{Kvalita výstupu}
+				\begin{itemize}
+					\item sofistikované algoritmy sazby
+					\item odvozeno od tradiční typografie
+				\end{itemize}
+			\end{block}
+			\begin{block}{Popularita}
+				\begin{itemize}
+					\item de-facto norma v~akademickém a~vědeckém světě
+				\end{itemize}
+			\end{block}
+		\end{column}
+		\begin{column}{0.48\textwidth}
+			\begin{block}{Kvalita software}
+				\begin{itemize}
+					\item stabilita
+					\item rychlost
+					\item rozšiřitelnost
+					\item vstupním formátem text
+					\item mnoho druhů výstupu
+				\end{itemize}
+			\end{block}
+			\begin{block}{Svoboda}
+				\begin{itemize}
+					\item svobodný software
+					\item běží na mnoha platformách
+				\end{itemize}
+			\end{block}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Proč se učit \hologo{LaTeX} -- škálovatelnost}
+	\begin{center}
+		\includegraphics{Lecture1/Figures/Scalability.pdf}\par
+		\begin{tiny}
+			Převzato z \url{http://www.pinteric.com/miktex.html}
+		\end{tiny}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}[t]
+	\frametitle{Proč se učit \hologo{LaTeX} -- kvalita výstupu}
+	\begin{itemize}
+		\item Kvalitní sazba a čitelnost
+			\begin{itemize}
+				\item správné mezery mezi slovy, řádky i odstavci,
+				\item kontextově závislé dělení slov,
+				\item podpora podřezávání a ligatur.
+			\end{itemize}
+			\medskip
+			\begin{columns}[t]
+				\begin{column}{0.45\textwidth}
+					\includegraphics[width=\columnwidth]{Lecture1/Figures/ParagraphSample1.pdf}
+				\end{column}
+				\begin{column}{0.45\textwidth}
+					\includegraphics[width=\columnwidth]{Lecture1/Figures/ParagraphSample2.pdf}
+				\end{column}
+			\end{columns}
+		\item Správná matematická sazba
+			\begin{columns}[t]
+				\begin{column}{0.45\textwidth}
+					\includegraphics[width=\columnwidth]{Lecture1/Figures/EquationSample1.pdf}
+				\end{column}
+				\begin{column}{0.45\textwidth}
+					\includegraphics[width=\columnwidth]{Lecture1/Figures/EquationSample2.pdf}
+				\end{column}
+			\end{columns}
+	\end{itemize}
+	\begin{center}
+		\tiny
+		Převzato z \url{http://liantze.penguinattack.org/}.
+	\end{center}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Proč se učit \hologo{LaTeX} -- bakalářská práce}
+	\begin{itemize}
+		\item Jak jsem posledně formátoval nadpis kapitoly?
+		\item Nedával jsem tenhle druh nadpisu kurzívou?
+		\item Rovnice se nezobrazuje správně. Někde ano, někde ne!
+		\item Do háje, zapomněl jsem aktualizovat obsah dokumentu, nadpisy ani stránky nesedí!
+		\item Potřebuji vložit nový obrázek. Jak mám přečíslovat dvacet obrázků?!
+		\item Formátování citací a literatury není konzistentní. Jsou pokaždé jiné!
+		\item Číslování citací a literatury si neodpovídají!
+		\item Editor spadl! \alert{\textbf{Soubor s dokumentem je poškozen! Do pi\ldots!!}} A~zálohu nemám.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Proč se učit \hologo{LaTeX} -- známé workflow}
+	\begin{center}
+		\emph{Nástroje a postupy používané pro sazbu dokumentů pomocí \hologo{LaTeX}u (\hologo{TeX}u) jsou shodné s~nástroji a postupy používanými pro vývoj software.}
+	\end{center}
+	\emph{Důležité} -- zdrojový kód dokumentu, obrázky k vložení, konfigurační soubory, atd.\par
+	\emph{Nedůležité} -- výsledná podoba dokumentu, vznikne kdykoliv kompilací.\par
+	\emph{Známé nástroje a postupy práce} -- dokument jako projekt, správa verzí (Git, Subversion,\ldots), programátorské editory (zvýraznění syntaxe, více otevřených souborů, čistý text), build systémy (např.\ \texttt{make}) nebo integrované vývojové prostředí (IDE).
+\end{frame}
+
+
+\subsection{\hologo{TeX} versus \hologo{LaTeX}}
+\begin{frame}
+	\frametitle{\hologo{TeX} versus \hologo{LaTeX}}
+	\enquote{\emph{Dokument jsem napsal v čistém \hologo{TeX}u.}}
+	\begin{itemize}
+		\item Virgin \hologo{TeX} -- instrukce sázecího procesoru, \enquote{elementární částice \hologo{TeX}ového vesmíru}, \enquote{nuly a jedničky}.
+		\item Čistým \hologo{TeX}em je obvykle míněn formát \hologo{plainTeX}.
+		\item \hologo{plainTeX} -- \enquote{assembler}, maximální kontrola nad sazbou dokumentu, ale nutné obrovské předchozí znalosti.
+		\item \hologo{LaTeX} -- \enquote{vyšší programovací jazyk}, snadný zápis za cenu jistých omezení (z pohledu \hologo{plainTeX} guru).
+		\item Chci \enquote{snadno} napsat technický dokument nebo se \enquote{několik let} učit zvládnout nástroj, kterým dokument psát?
+		\item Krásná záminka k tzv.\ flame war.
+	\end{itemize}
+\end{frame}
+
+
+\subsection{První dokument v \hologo{LaTeX}u}
+\begin{frame}
+	\frametitle{První dokument v \hologo{LaTeX}u}
+	\begin{enumerate}
+		\item V textovém editoru vytvoříme soubor \texttt{FirstDoc.tex} s~následujícím obsahem:\par
+			\BVerbatimInput{Samples/FirstDocToInclude.tex}
+		\item Na příkazovém řádku spustíme překlad pomocí\\\texttt{pdflatex FirstDoc.tex}
+		\item Překladem získáme soubor \texttt{FirstDoc.pdf}
+	\end{enumerate}
+		\SamplePdfBox{\includegraphics[width=\MaxPdfSampleWidth]{Samples/FirstDoc-crop.pdf}}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{První dokument v \hologo{LaTeX}u -- rozbor}
+	\BVerbatimInput{Samples/FirstDocToInclude.tex}
+	\begin{itemize}
+		\item Příkaz |\documentclass| deklaruje \emph{třídu dokumentu}. 
+		\item \emph{Preambule} dokumentu
+			\begin{itemize}
+ 				\item oblast mezi |\documentclass| a |\begin{document}|, 
+ 				\item nastavení parametrů, definice příkazů atd.,
+ 				\item tato část nesmí generovat viditelný výstup.
+			\end{itemize}
+		\item Vlastní text dokumentu -- ohraničen |\begin{document}| a~|\end{document}|
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{První dokument v \hologo{LaTeX}u -- text dokumentu}
+	\begin{BVerbatim}
+Your first document. This is a very simple example,
+with no extra parameters or packages     included.
+	\end{BVerbatim}
+	\begin{itemize}
+		\item Pokud neřekneme jinak, sází \hologo{LaTeX} \emph{odstavce hladkého textu} -- ASCII vstup, zarovnání do bloku, odstavcová zarážka, anglické dělení slov.
+		\item Transformace -- konec řádku je nahrazen mezerou, posloupnost mezer je nahrazena jednou mezerou.
+		\item Odstavce jsou odděleny aspoň jedním volným řádkem.
+	\end{itemize}
+	\begin{remark}
+		Text dokumentu zapsaný pomocí \hologo{LaTeX}u je zdrojový kód jako každý jiný! Platí jeho úpravu platí obdobná pravidla jako pro každý jiný zdrojový kód, třeba v C++.
+	\end{remark}
+\end{frame}
+
+
+\subsection{Distribuce \hologo{TeX}u/\hologo{LaTeX}u}
+\begin{frame}[fragile]
+	\frametitle{Distribuce \hologo{TeX}u/\hologo{LaTeX}u}
+	Podobně jako OS Linux je \hologo{LaTeX} a spolupracující software dostupný ve formě tzv.\ \emph{distribucí}:
+	\begin{description}
+		\item[\hologo{TeX}Live] -- \url{https://www.tug.org/texlive/}
+		\item[Mik\hologo{TeX}] -- \url{https://miktex.org/}
+		\item[Mac\hologo{TeX}] -- \url{https://tug.org/mactex/}
+	\end{description}
+	\begin{block}{Podpora operačních systémů}
+		\centering
+		\UndefineShortVerb{\|}
+		\begin{tabular}{lccc}
+			& Windows & Linux & Mac OS\\
+			\hline
+			\hologo{TeX}Live & \Checkmark & \Checkmark & \XSolidBrush \\
+			Mik\hologo{TeX} & \Checkmark & \XSolidBrush & \XSolidBrush \\
+			Mac\hologo{TeX} & \XSolidBrush & \XSolidBrush & \Checkmark \\
+		\end{tabular}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{\hologo{LaTeX} online}
+	\begin{center}
+		\url{https://www.overleaf.com/}
+	\end{center}
+	\begin{itemize}
+		\item vše soustředěno ve webovém prohlížeči,
+		\item dokumenty uloženy na serveru Overleaf.com,
+		\item snadné sdílení dokumentů,
+		\item kolaborativní editace dokumentů,
+		\item integrovaný realtime prohlížeč dokumentů.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Overleaf.com -- úskalí použití}
+	\begin{itemize}
+		\item Překladač Overleaf pracuje v tzv.\ \enquote{nonstop} režimu.
+		\item Pokud to jen trochu jde, chyby se snaží ignorovat a vysázet dokument za každou cenu.
+		\item Výsledný zdrojový kód nemusí být přeložitelný na jiných systémech.
+		\item \emph{Řešení} -- sledovat, zda překlad proběhl bez chyby. Pokud ano, je vše v pořádku a dokument bude přeložitelný bez problémů i na jiném počítači.
+	\end{itemize}
+\end{frame}
+
+
+\subsection{Editory pro \hologo{LaTeX}}
+\begin{frame}
+	\frametitle{Editory pro \hologo{LaTeX}}
+\end{frame}
+
+
+\subsection{Výstupní formáty a kompilátory}
+\begin{frame}
+	\frametitle{Výstupní formáty a kompilátory}
+\end{frame}
+
+
+\subsection{Proces kompilace}
+\begin{frame}
+	\frametitle{Proces kompilace}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Ukázky sazby -- úmluva}
+	\begin{itemize}
+		\item Předchozí ukázka sazby dokumentu i tato prezentace vznikla za použití \hologo{LaTeX}u.
+		\item Je však jasné, že sazba dokumentu na stranu formátu A4 a~sazba prezentace se řídí jinými parametry -- rozměry stránky, použitý font a~jeho velikost, barvy a tak dále.
+		\item Pokud nebude výsledek sazby daného typografického prvku v prezentaci a \enquote{papírovém dokumentu} diametrálně odlišný, bude sazba demonstrována přímo v prezentaci. Ve svém dokumentu však uvidíte sice stejný prvek, ale vysázený pravděpodobně jiným fontem, v jiné barvě a tak dále.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks,fragile]
+	\frametitle{Ukázky sazby -- nastavení}
+	Ukázky sazby \enquote{papírového dokumentu} probíhají vždy s~následujícím nastavením:\par
+	\begin{BVerbatim}
+\documentclass[10pt, a4paper]{article}
+\usepackage{cmap}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[czech]{babel}
+\begin{document}
+...
+\end{document}
+	\end{BVerbatim}
+	\par
+	 Dále mohou být vloženy aktuálně demonstrované balíky maker.\par
+	 Překlad probíhá pomnocí \hologo{pdfLaTeX}u.
+\end{frame}
+
+\endinput

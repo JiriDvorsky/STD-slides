@@ -1,0 +1,15 @@
+\ProvidesPackage{LaTeXSamples}
+\usepackage{cmap}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsthm}
+\ProcessOptions\relax
+\pagestyle{empty}
+\newtheorem{definition}{Definice}[section]
+\newtheorem{theorem}{Věta}[section]
+\newtheorem{corollary}{Důsledek}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{remark}{Poznámka}
+\endinput

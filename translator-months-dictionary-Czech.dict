@@ -1,0 +1,14 @@
+\ProvidesDictionary{translator-month-dictionary}{Czech}
+
+\providetranslation{January}{Leden}
+\providetranslation{February}{\'Unor}
+\providetranslation{March}{B\v{r}ezen}
+\providetranslation{April}{Duben}
+\providetranslation{May}{Kv\v{e}ten}
+\providetranslation{June}{\v{C}erven}
+\providetranslation{July}{\v{C}ervenec}
+\providetranslation{August}{Srpen}
+\providetranslation{September}{Z\'a\v{r}\'i}
+\providetranslation{October}{\v{R}\'ijen}
+\providetranslation{November}{Listopad}
+\providetranslation{December}{Prosinec}
