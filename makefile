@@ -2,7 +2,6 @@ DelCmd := del /s /q
 
 PdfLaTeX := pdflatex
 PdfCrop := pdfcrop
-Biber := biber
 
 CroppedSamples :=\
 	Samples/FirstDoc-crop.pdf\
