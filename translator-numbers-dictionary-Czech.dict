@@ -1,5 +1,4 @@
 \ProvidesDictionary{translator-numbers-dictionary}{Czech}
-
 \providetranslation{one}{jedna}
 \providetranslation{two}{dv\v{e}}
 \providetranslation{three}{t\v{r}i}
@@ -12,7 +11,6 @@
 \providetranslation{ten}{deset}
 \providetranslation{eleven}{jeden\'act}
 \providetranslation{twelve}{dvan\'act}
-
 \providetranslation{One}{Jedna}
 \providetranslation{Two}{Dv\v{e}}
 \providetranslation{Three}{T\v{r}i}
@@ -25,7 +23,6 @@
 \providetranslation{Ten}{Deset}
 \providetranslation{Eleven}{Jeden\'act}
 \providetranslation{Twelve}{Dvan\'act}
-
 \providetranslation{first}{prvn\'i}
 \providetranslation{second}{druh\'y}
 \providetranslation{third}{t\v{r}et\'i}
@@ -38,7 +35,6 @@
 \providetranslation{tenth}{des\'at\'y}
 \providetranslation{eleventh}{jeden\'act\'y}
 \providetranslation{twelveth}{dvan\'act\'y}
-
 \providetranslation{1st}{1.}
 \providetranslation{2nd}{2.}
 \providetranslation{3rd}{3.}
