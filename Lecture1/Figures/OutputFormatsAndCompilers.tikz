@@ -1,0 +1,30 @@
+\begin{tikzpicture}
+	[
+		node/.style = {draw, thick, rectangle, rounded corners, minimum width = 20mm, minimum height = 10mm, align = center},
+		file/.style = {draw, thick, rectangle, rounded corners, minimum width = 20mm, minimum height = 10mm, align = center, color = blue!90!black},
+		printview/.style = {draw, thick, rectangle, rounded corners, minimum width = 20mm, minimum height = 10mm, align = center, color = green!60!black},
+		arrow/.style = {thick, ->, >=stealth},
+		fileprocessing/.style = {arrow, color = CornellRed},
+		view/.style = {arrow, color = green!60!black},
+		node distance = 20mm
+	]
+	\matrix[row sep = 10mm,column sep = 10mm]
+	{
+		& \node (DVIFile) [file] {DVI soubor}; & \node (PostscriptFile) [file] {Postscript\\ soubor}; & \\
+		\node (LaTeXSourceCode) [file] {zdrojový kód\\ dokumentu}; & & & \node (Print) [printview] {prohlížeč\\ tiskárna};\\
+		& \node (PDFFile) [file] {PDF soubor}; & & \\
+	};
+	\coordinate (Corner1) at (LaTeXSourceCode.south |- DVIFile.west);
+	\coordinate (Corner2) at (LaTeXSourceCode.south |- PDFFile.west);
+	\draw [fileprocessing] (LaTeXSourceCode.north) -- (Corner1) -- (DVIFile);
+	\draw [fileprocessing] (LaTeXSourceCode.south) -- (Corner2) -- (PDFFile);
+	\node [CornellRed, below] at (Corner2) {\hologo{pdfLaTeX}};
+	\node [CornellRed, above] at (Corner1) {\hologo{LaTeX}};
+	\draw (DVIFile) edge [fileprocessing, above] node {dvips} (PostscriptFile);
+	\draw (DVIFile) edge [fileprocessing, sloped, below] node {dvipdfmx} (PDFFile);
+	\draw [view] (DVIFile) -- (Print.west);
+	\draw [view] (PostscriptFile) -| (Print.north);
+	\draw (PostscriptFile) edge [fileprocessing, sloped, below] node {ps2pdf} (PDFFile);
+	\draw [view] (PDFFile.east) -| (Print.south);
+\end{tikzpicture}
+\endinput
