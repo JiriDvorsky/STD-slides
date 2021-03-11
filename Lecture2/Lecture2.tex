@@ -8,19 +8,31 @@
 \subsection{Příkazy}
 \begin{frame}[fragile]
 	\frametitle{Příkazy}
-		\begin{itemize}
-			\item řídí celou sazbu dokumentu,
-			\item slangově se nazývají také jako \emph{makra},
-			\item rozlišujeme dva typy příkazů:
-				\begin{itemize}
-					\item \emph{řídící slova} libovolně dlouhou sekvencí písmen anglické abecedy -- 
-					\item \emph{řídící znaky} jediným nepísmeným znakem -- 
-				\end{itemize}
-			
+	\begin{itemize}
+		\item řídí celou sazbu dokumentu,
+		\item slangově se nazývají také \emph{makra},
+		\item začínají vždy zpětným lomítkem |\|
+		\item rozlišujeme dva typy příkazů:
+			\begin{itemize}
+				\item \emph{řídící slova} -- tvořená libovolně dlouhou sekvencí písmen anglické abecedy, která je ukončena prvním nepísmenovým znakem.\par
+					Pokud je prvním nepísmenovým znakem mezera je řídícím slovem \enquote{sežrána} a zmizí ze vstupu, například:\par
+					|\LaTeX{} \LaTeX\ {\LaTeX} logo \LaTeX u|\par \LaTeX{} \LaTeX\ {\LaTeX} logo \LaTeX u
+				\item \emph{řídící znaky} -- tvořené jediným nepísmenovým znakem. Například |\#| je řídící znak, který sází znak \#.
+			\end{itemize}
+	\end{itemize}
+\end{frame}
 
 
-			\item začínají vždy zpětným lomítkem |\| a pokračují
-		\end{itemize}
+\begin{frame}[fragile]
+	\frametitle{Příkazy -- druhy účinku}
+	\begin{description}
+		\item[Vkládací příkazy] -- do místa svého výskytu vloží danou typografickou konstrukci, například logo |\LaTeX|
+		\item[Přepínače] -- změní určitý parametr sazby. Ukončení změny -- konec aktuální skupiny nebo změna daného parametru jiným příkazem.\par
+			Např.\ |\itshape| \textit{přepne až do odvolání na kurzívu, zatímco }|\upshape| vrací běžné vzpřímené písmo\ldots
+	
+		\item[Příkazy s parametrem] -- vytvoří určitou konstrukci za použití daného parametru. Parametry jsou každý zvlášť uzavřeny do složených závorek. Nepovinný parametr se uvádí v hranatých závorkách, před ostatními parametry. Příklad
+		|\documentclass[10pt, a4paper]{article}|
+	\end{description}
 \end{frame}
 
 
