@@ -2,7 +2,6 @@
 	[
 		file/.style = {semithick, rounded corners},
 		arrow/.style = {semithick, ->, >=stealth},
-		doublearrow/.style = {semithick, <->, >=stealth}
 	]
 	\newcommand{\CellSize}{3}
 	\coordinate (SizeX) at (\CellSize, 0);
@@ -14,23 +13,23 @@
 	\coordinate (LaTeXImpl) at ($0*(SizeX) + 8*(SizeY)$);
 	\coordinate (Packages) at ($0*(SizeX) + 5*(SizeY)$);
 
-	\coordinate (PdfFile) at ($24*(SizeX) + 11*(SizeY)$);
-	\coordinate (LogFile) at ($24*(SizeX) + 5*(SizeY)$);
+	\coordinate (PdfFile) at ($9*(SizeX) + 0*(SizeY)$);
+	\coordinate (LogFile) at ($15*(SizeX) + 0*(SizeY)$);
 
-	\coordinate (ToCFile) at ($3*(SizeX) + 18*(SizeY)$);
-	\coordinate (LoTFile) at ($9*(SizeX) + 18*(SizeY)$);
-	\coordinate (LoFFile) at ($15*(SizeX) + 18*(SizeY)$);
-	\coordinate (AuxFile) at ($21*(SizeX) + 18*(SizeY)$);
+	\coordinate (ToCFile) at ($5*(SizeX) + 18*(SizeY)$);
+	\coordinate (LoTFile) at ($12*(SizeX) + 18*(SizeY)$);
+	\coordinate (LoFFile) at ($19*(SizeX) + 18*(SizeY)$);
 
 	\coordinate (TeXCompiler) at ($10*(SizeX) + 6*(SizeY)$);
 
-	\coordinate (DocumentIndex) at ($19*(SizeX) + 1*(SizeY)$);
-	\coordinate (Bibliography) at ($9*(SizeX) + 1*(SizeY)$);
+	\coordinate (IndFile) at ($23*(SizeX) + 6*(SizeY)$);
+	\coordinate (IdxFile) at ($23*(SizeX) + 10*(SizeY)$);
+	\coordinate (MakeIndex) at ($29*(SizeX) + 6*(SizeY)$);
 
-%	\draw [step=\CellSize, lightgray] (0, 0) grid ++($33*(SizeX) + 21*(SizeY)$);
+	%\draw [step=\CellSize, lightgray] (0, 0) grid ++($33*(SizeX) + 18*(SizeY)$);
 
 	\fill [file, color = green!60!black] (DocSource) rectangle ++(FileBoxSize);
-	\node [font = \large] at ($(DocSource) + (FileBoxLabelOffset)$) {a.tex};
+	\node at ($(DocSource) + (FileBoxLabelOffset)$) {a.tex};
 
 	\draw [file] (LaTeXImpl) rectangle ++(FileBoxSize);
 	\node at ($(LaTeXImpl) + (FileBoxLabelOffset)$) {\hologo{LaTeX}};
@@ -41,20 +40,17 @@
 	\fill [file, color = green!60!black] (PdfFile) rectangle ++(FileBoxSize);
 	\node at ($(PdfFile) + (FileBoxLabelOffset)$) {a.pdf};
 
-	\draw [file] (LogFile) rectangle ++(FileBoxSize);
+	\draw [file]  (LogFile) rectangle ++(FileBoxSize);
 	\node at ($(LogFile) + (FileBoxLabelOffset)$) {a.log};
 
-	\draw [file] (ToCFile) rectangle ++(FileBoxSize);
+	\draw [file]  (ToCFile) rectangle ++(FileBoxSize);
 	\node at ($(ToCFile) + (FileBoxLabelOffset)$) {a.toc};
 
-	\draw [file] (LoTFile) rectangle ++(FileBoxSize);
+	\draw [file]  (LoTFile) rectangle ++(FileBoxSize);
 	\node at ($(LoTFile) + (FileBoxLabelOffset)$) {a.lot};
 
-	\draw [file] (LoFFile) rectangle ++(FileBoxSize);
+	\draw [file]  (LoFFile) rectangle ++(FileBoxSize);
 	\node at ($(LoFFile) + (FileBoxLabelOffset)$) {a.lof};
-
-	\draw [file] (AuxFile) rectangle ++(FileBoxSize);
-	\node at ($(AuxFile) + (FileBoxLabelOffset)$) {a.aux};
 
 	\fill [thick, fill = lightgray, rounded corners] (TeXCompiler) rectangle ++($8*(SizeX) + 6*(SizeY)$);
 	\node [font = \Large] at ($(TeXCompiler) + 4*(SizeX) + 3*(SizeY)$) {\hologo{pdfLaTeX}};
@@ -63,30 +59,36 @@
 	\draw [arrow] ($(LaTeXImpl) + 4*(SizeX) + 1*(SizeY)$) -- ($(TeXCompiler) + 3*(SizeY)$);
 	\draw [arrow] ($(Packages) + 4*(SizeX) + 1*(SizeY)$) -- ($(TeXCompiler) + 2*(SizeY)$);
 
-	\draw [arrow] ($(TeXCompiler) + 8*(SizeX) + 4*(SizeY)$) -- ($(PdfFile) + 0*(SizeX) + 1*(SizeY)$);
-	\draw [arrow] ($(TeXCompiler) + 8*(SizeX) + 2*(SizeY)$) -- ($(LogFile) + 0*(SizeX) + 1*(SizeY)$);
+	\draw [arrow] ($(TeXCompiler) + 2*(SizeX)$) -- ($(PdfFile) + 2*(SizeX) + 2*(SizeY)$);
+	\draw [arrow] ($(TeXCompiler) + 6*(SizeX)$) -- ($(LogFile) + 2*(SizeX) + 2*(SizeY)$);
 
-	\draw ($(ToCFile) + 1.5*(SizeX)$) edge [arrow] node [pos = 0.4, sloped, below, color = CornellRed, font = \tiny\ttfamily] {\textbackslash{}tableofcontents} ($(TeXCompiler) + 0*(SizeX) + 5.5*(SizeY)$);
+	\draw ($(ToCFile) + 1*(SizeX)$) edge [arrow, bend right] node [pos = 0.4, sloped, below, color = CornellRed, font = \tiny\ttfamily] {\textbackslash{}tableofcontents} ($(TeXCompiler) + 0*(SizeX) + 6*(SizeY)$);
 
-	\draw ($(TeXCompiler) + 0.5*(SizeX) + 6*(SizeY)$) edge [arrow] node [midway, sloped, above, color = CornellRed, font = \tiny\ttfamily] {\textbackslash{}section,\ldots} ($(ToCFile) + 2.5*(SizeX)$);
+	\draw ($(TeXCompiler) + 0*(SizeX) + 6*(SizeY)$) edge [arrow, bend right] node [midway, sloped, below, color = CornellRed, font = \tiny\ttfamily] {\textbackslash{}section} ($(ToCFile) + 3*(SizeX)$);
 
-	\draw ($(LoTFile) + 1.5*(SizeX)$) edge [arrow] node [midway, sloped, below, color = CornellRed, font = \tiny\ttfamily] {\textbackslash{}listoftables} ($(TeXCompiler) + 2*(SizeX) + 6*(SizeY)$);
+	\draw ($(LoTFile) + 1*(SizeX)$) edge [arrow, bend right] node [midway, sloped, below, color = CornellRed, font = \tiny\ttfamily] {\textbackslash{}listoftables} ($(TeXCompiler) + 3.5*(SizeX) + 6*(SizeY)$);
 
-	\draw ($(TeXCompiler) + 3*(SizeX) + 6*(SizeY)$) edge [arrow] node [midway, sloped, above, color = CornellRed, font = \tiny\ttfamily] {\textbackslash{}caption} ($(LoTFile) + 2.5*(SizeX)$);
+	\draw ($(TeXCompiler) + 4.5*(SizeX) + 6*(SizeY)$) edge [arrow, bend right] node [midway, sloped, below, color = CornellRed, font = \tiny\ttfamily] {\textbackslash{}caption} ($(LoTFile) + 3*(SizeX)$);
 
-	\draw ($(TeXCompiler) + 6*(SizeX) + 6*(SizeY)$) edge [arrow] node [midway, sloped, below, color = CornellRed, font = \tiny\ttfamily] {\textbackslash{}caption} ($(LoFFile) + 2.5*(SizeX)$);
+	\draw ($(TeXCompiler) + 8*(SizeX) + 6*(SizeY)$) edge [arrow, bend right] node [pos = 0.66, sloped, below, color = CornellRed, font = \tiny\ttfamily] {\textbackslash{}listoffigures} ($(LoFFile) + 3*(SizeX)$);
 
-	\draw ($(LoFFile) + 1.5*(SizeX)$) edge [arrow] node [midway, sloped, above, color = CornellRed, font = \tiny\ttfamily] {\textbackslash{}listoffigures} ($(TeXCompiler) + 5*(SizeX) + 6*(SizeY)$);
+	\draw ($(LoFFile) + 1*(SizeX)$) edge [arrow, bend right] node [midway, sloped, below, color = CornellRed, font = \tiny\ttfamily] {\textbackslash{}caption} ($(TeXCompiler) + 8*(SizeX) + 6*(SizeY)$);
 
+	\draw [file] (IdxFile) rectangle ++(FileBoxSize);
+	\node at ($(IdxFile) + (FileBoxLabelOffset)$) {a.idx};
 
-	\draw ($(TeXCompiler) + 7.5*(SizeX) + 6*(SizeY)$) edge [arrow] node [midway, sloped, above, color = CornellRed, font = \tiny\ttfamily] {\textbackslash{}label} ($(AuxFile) + 1.5*(SizeX)$);
+	\draw [file] (IndFile) rectangle ++(FileBoxSize);
+	\node at ($(IndFile) + (FileBoxLabelOffset)$) {a.ind};
 
-	\draw ($(AuxFile) + 2.5*(SizeX)$) edge [arrow] node [midway, sloped, below, color = CornellRed, font = \tiny\ttfamily] {\textbackslash{}ref} ($(TeXCompiler) + 8*(SizeX) + 5.5*(SizeY)$);
+	\fill [thick, fill = lightgray, rounded corners] (MakeIndex) rectangle ++ ($4*(SizeX) + 6*(SizeY)$);
 
-	\node [draw, thick, cloud, aspect = 2.75] at (Bibliography) (BibliographyNode) {Literatura};
-	\node [draw, thick, cloud, aspect = 2] at (DocumentIndex) (DocumentIndexNode) {Rejstřík};
+	\node [font = \footnotesize, align = center, rotate = 90] at ($(MakeIndex) + 2*(SizeX)  + 3*(SizeY)$) {makeindex\\(xindy)};
 
-	\draw [doublearrow] ($(TeXCompiler) + 2*(SizeX)$) -- (BibliographyNode.north);
-	\draw [doublearrow] ($(TeXCompiler) + 6*(SizeX)$) -- (DocumentIndexNode.north);
+	\draw ($(TeXCompiler) + 8*(SizeX) + 5*(SizeY)$) edge [arrow] node[midway, below, color = CornellRed, font = \tiny\ttfamily] {\textbackslash{}index\{\}} ($(IdxFile) + 1*(SizeY)$);
+
+	\draw ($(TeXCompiler) + 8*(SizeX) + 1*(SizeY)$) edge [arrow] node[midway, below, color = CornellRed, font = \tiny\ttfamily] {\textbackslash{}printindex} ($(IndFile) + 1*(SizeY)$);
+
+	\draw [arrow] ($(IdxFile) + 4*(SizeX) + 1*(SizeY)$) -- ($(IdxFile) + 6*(SizeX) + 1*(SizeY)$);
+	\draw [arrow] ($(IndFile) + 6*(SizeX) + 1*(SizeY)$) -- ($(IndFile) + 4*(SizeX) + 1*(SizeY)$);
 \end{tikzpicture}
 \endinput
