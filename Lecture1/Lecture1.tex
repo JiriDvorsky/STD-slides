@@ -242,8 +242,11 @@ with no extra parameters or packages     included.
 
 \subsection{Distribuce \hologo{TeX}u/\hologo{LaTeX}u}
 \begin{frame}[fragile]
-	\frametitle{Distribuce \hologo{TeX}u/\hologo{LaTeX}u}
-	Podobně jako OS Linux je \hologo{LaTeX} a spolupracující software dostupný ve formě tzv.\ \emph{distribucí}:
+	\frametitle{Offline distribuce \hologo{TeX}u/\hologo{LaTeX}u}
+	\begin{itemize}
+		\item Podobně jako OS Linux, je \hologo{LaTeX} a podpůrný software dostupný ve formě tzv.\ \emph{distribucí}.
+		\item Offline distribuce jsou určeny pro lokální instalaci.
+	\end{itemize}
 	\begin{description}
 		\item[\hologo{TeX}Live] -- \url{https://www.tug.org/texlive/}
 		\item[Mik\hologo{TeX}] -- \url{https://miktex.org/}
@@ -264,27 +267,59 @@ with no extra parameters or packages     included.
 
 
 \begin{frame}[fragile]
-	\frametitle{\hologo{LaTeX} online}
+	\frametitle{Online distribuce \hologo{LaTeX}u}
 	\begin{center}
+		\includegraphics[width=0.5\textwidth]{Lecture1/Figures/overleaf_wide_colour_light_bg.pdf}\\
 		\url{https://www.overleaf.com/}
 	\end{center}
 	\begin{itemize}
-		\item vše soustředěno ve webovém prohlížeči,
-		\item dokumenty uloženy na serveru Overleaf.com,
+		\item pro práci je potřebný jen webový prohlížeč a připojení k~internetu,
+		\item dokumenty jsou uloženy na serveru Overleaf.com,
 		\item snadné sdílení dokumentů,
 		\item kolaborativní editace dokumentů,
+		\item sledování změn v dokumentu,
 		\item integrovaný realtime prohlížeč dokumentů.
 	\end{itemize}
 \end{frame}
 
+
 \begin{frame}
-	\frametitle{Overleaf.com -- úskalí použití}
+	\frametitle{Online distribuce \hologo{LaTeX}u -- pracovní prostředí}
+	\begin{center}
+		\includegraphics[width=\textwidth]{Lecture1/Figures/Overleaf-journal-template-richtext-example-hires.png}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Online distribuce \hologo{LaTeX}u -- sledování změn}
+	\begin{center}
+		\includegraphics[width=\textwidth]{Lecture1/Figures/Overleaf-journal-template-source-trackchanges-example-hires.png}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Overleaf.com -- signalizace chyb při překladu}
 	\begin{itemize}
 		\item Překladač Overleaf pracuje v tzv.\ \enquote{nonstop} režimu.
-		\item Pokud to jen trochu jde, chyby se snaží ignorovat a vysázet dokument za každou cenu.
-		\item Výsledný zdrojový kód nemusí být přeložitelný na jiných systémech.
-		\item \emph{Řešení} -- sledovat, zda překlad proběhl bez chyby. Pokud ano, je vše v pořádku a dokument bude přeložitelný bez problémů i na jiném počítači.
+		\item Pokud to jen trochu jde, chyby se snaží ignorovat a vysázet dokument za každou cenu. Takový zdrojový kód ale nemusí být bez problémů přeložitelný na jiných systémech.
+		\item \alert{Je proto nutné sledovat, zda překlad proběhl bez chyby!}
 	\end{itemize}
+	\begin{columns}
+		\begin{column}{0.45\textwidth}
+			\begin{alertblock}{Překlad s chybami}
+				\centering
+				\includegraphics[width=0.95\textwidth]{Lecture1/Figures/Overleaf-errors.png}
+			\end{alertblock}
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			\begin{block}{Překlad bez chyb}
+				\centering
+				\includegraphics[width=0.95\textwidth]{Lecture1/Figures/Overleaf-no-errors.png}
+			\end{block}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 
