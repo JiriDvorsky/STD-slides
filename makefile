@@ -16,7 +16,9 @@ CroppedSamples :=\
 	Samples/MathSample2-crop.pdf\
 	Samples/MathSample3-crop.pdf\
 	Samples/Definition-crop.pdf\
-	Samples/Theorem-crop.pdf
+	Samples/Theorem-crop.pdf\
+	Samples/FlushLeft-crop.pdf\
+	Samples/FlushRight-crop.pdf
 
 .PHONY: clean cleanwork
 .PRECIOUS: Samples/%-crop.pdf
