@@ -18,7 +18,8 @@ CroppedSamples :=\
 	Samples/Definition-crop.pdf\
 	Samples/Theorem-crop.pdf\
 	Samples/FlushLeft-crop.pdf\
-	Samples/FlushRight-crop.pdf
+	Samples/FlushRight-crop.pdf\
+	Samples/CenteredText-crop.pdf
 
 .PHONY: clean cleanwork
 .PRECIOUS: Samples/%-crop.pdf
