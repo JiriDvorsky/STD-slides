@@ -19,7 +19,8 @@ CroppedSamples :=\
 	Samples/Theorem-crop.pdf\
 	Samples/FlushLeft-crop.pdf\
 	Samples/FlushRight-crop.pdf\
-	Samples/CenteredText-crop.pdf
+	Samples/CenteredText-crop.pdf\
+	Samples/CommentSample-crop.pdf
 
 .PHONY: clean cleanwork
 .PRECIOUS: Samples/%-crop.pdf
