@@ -9,7 +9,7 @@
 \usepackage{fancyvrb}
 \usepackage{tcolorbox}
 \usepackage{bbding}
-\usepackage{hologo}
+\usepackage{hvlogos}
 \usepackage[czech=quotes]{csquotes}
 \usepackage{pgfplots}
 \usepackage{url}
@@ -23,7 +23,6 @@
 
 \hologoLogoSetup{plainTeX}{variant=runtogether}
 \newcommand{\Beamer}{\textsc{\mbox{Beamer}}}
-\newcommand{\biblatex}{\mbox{biblatex}}
 
 \usetheme[numbering=fraction, sectionpage=none, subsectionpage=none, block=fill]{metropolis}
 \setbeamertemplate{section in toc}[sections numbered]
@@ -81,6 +80,9 @@
 
 \newcommand{\ThanksAttentionPage}{\begin{frame}[standout]Děkuji za pozornost\end{frame}}
 
+\newcommand{\UnderConstruction}[1][7em]{\includegraphics[width=#1]{Figures/UnderConstructionGeek.pdf}}
+
+
 \author[Jiří Dvorský]{doc.\ Mgr.\ Jiří Dvorský, Ph.D.}
 \institute[VŠB -- TUO]{Katedra informatiky\\{}Fakulta elektrotechniky a informatiky\\{}VŠB -- TU Ostrava\\\smallskip\\\includegraphics[height=3ex]{Figures/by-sa.pdf}}
 \title{Sazba technických dokumentů}
@@ -101,13 +103,13 @@
 %	\end{center}
 %\end{frame}
 
-\begin{frame}
-	\frametitle{Aktuální verze prezentací}
-	Prezentace jsou průběžně, podle potřeb výuky, doplňovány a~aktualizovány. Aktuální verzi prezentací najdete vždy na webu předmětu
-	\begin{center}
-		\url{www.cs.vsb.cz/dvorsky/STD.html}
-	\end{center}
-\end{frame}
+%\begin{frame}
+%	\frametitle{Aktuální verze prezentací}
+%	Prezentace jsou průběžně, podle potřeb výuky, doplňovány a~aktualizovány. Aktuální verzi prezentací najdete vždy na webu předmětu
+%	\begin{center}
+%		\url{www.cs.vsb.cz/dvorsky/STD.html}
+%	\end{center}
+%\end{frame}
 
 \begin{frame}[t,allowframebreaks]
 	\frametitle{Celková osnova všech lekcí}
