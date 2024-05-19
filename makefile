@@ -1,7 +1,8 @@
-DelCmd := del /s /q
-
 PdfLaTeX := pdflatex
 PdfCrop := pdfcrop
+Biber := biber
+
+DelCmd := del /s /q
 
 CroppedSamples :=\
 	Samples/FirstDoc-crop.pdf\
@@ -28,6 +29,7 @@ CroppedSamples :=\
 
 AllLectures.pdf: AllLectures.tex $(CroppedSamples)
 	$(PdfLaTeX) $<
+	$(Biber) $(basename $<)
 	$(PdfLaTeX) -interaction=batchmode $<
 	$(PdfLaTeX) -interaction=batchmode $<
 

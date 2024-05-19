@@ -10,10 +10,13 @@
 \usepackage{tcolorbox}
 \usepackage{bbding}
 \usepackage{hvlogos}
+\usepackage[backend=biber, style=iso-numeric, bibencoding=UTF8]{biblatex}
 \usepackage[czech=quotes]{csquotes}
 \usepackage{pgfplots}
 \usepackage{url}
 \usepackage[official]{eurosym}
+
+\addbibresource{Bibliography.bib}
 
 \usetikzlibrary{calc}
 \usetikzlibrary{shapes.symbols}
@@ -103,14 +106,6 @@
 %	\end{center}
 %\end{frame}
 
-%\begin{frame}
-%	\frametitle{Aktuální verze prezentací}
-%	Prezentace jsou průběžně, podle potřeb výuky, doplňovány a~aktualizovány. Aktuální verzi prezentací najdete vždy na webu předmětu
-%	\begin{center}
-%		\url{www.cs.vsb.cz/dvorsky/STD.html}
-%	\end{center}
-%\end{frame}
-
 \begin{frame}[t,allowframebreaks]
 	\frametitle{Celková osnova všech lekcí}
 	\tableofcontents[subsectionstyle=show, subsubsectionstyle=hide]
@@ -136,6 +131,11 @@
 
 \input{Lecture7/Lecture7.tex}
 \ThanksAttentionPage
+
+\begin{frame}[t, allowframebreaks]
+	\frametitle{Literatura}
+	\printbibliography[title={Literatura}]
+\end{frame}
 
 \end{document}
 
