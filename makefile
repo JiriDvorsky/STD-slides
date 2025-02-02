@@ -1,4 +1,4 @@
-CleanWorkExt := '*.aux' '*.auxlock' '*.log' '*.toc' '*.nav' '*.snm' '*.out' '*.vrb' '*.idx' '*.ilg' '*.ind' '*.glo' '*.gls' '*.bbl' '*.bcf' '*.blg' '*.hd' '*.run.xml' 
+CleanWorkExt := *.aux *.auxlock *.log *.toc *.nav *.snm *.out *.vrb *.idx *.ilg *.ind *.glo *.gls *.bbl *.bcf *.blg *.hd *.run.xml 
 PdfLaTeX := pdflatex
 PdfCrop := pdfcrop
 Biber := biber
@@ -49,5 +49,6 @@ clean: cleanwork
 
 
 cleanwork:
-	$(foreach var, $(CleanWorkExt), find . -name $(var) -delete;)
+	$(foreach var, $(CleanWorkExt), $(DelCmd) ./$(var);)
+	$(foreach var, $(CleanWorkExt), $(DelCmd) ./Samples/$(var);)
 	$(DelCmd) ./Samples/*-crop.pdf
