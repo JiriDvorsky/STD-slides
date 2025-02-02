@@ -1,8 +1,9 @@
+CleanWorkExt := '*.aux' '*.auxlock' '*.log' '*.toc' '*.nav' '*.snm' '*.out' '*.vrb' '*.idx' '*.ilg' '*.ind' '*.glo' '*.gls' '*.bbl' '*.bcf' '*.blg' '*.hd' '*.run.xml' 
 PdfLaTeX := pdflatex
 PdfCrop := pdfcrop
 Biber := biber
+DelCmd := rm -f
 
-DelCmd := del /s /q
 
 CroppedSamples :=\
 	Samples/FirstDoc-crop.pdf\
@@ -48,24 +49,5 @@ clean: cleanwork
 
 
 cleanwork:
-	$(DelCmd) *.bak
-	$(DelCmd) *.aux
-	$(DelCmd) *.auxlock
-	$(DelCmd) *.log
-	$(DelCmd) *.toc
-	$(DelCmd) *.nav
-	$(DelCmd) *.snm
-	$(DelCmd) *.out
-	$(DelCmd) *.vrb
-	$(DelCmd) *.lst
-	$(DelCmd) *.idx
-	$(DelCmd) *.ilg
-	$(DelCmd) *.ind
-	$(DelCmd) *.glo
-	$(DelCmd) *.gls
-	$(DelCmd) *.bbl
-	$(DelCmd) *.bcf
-	$(DelCmd) *.blg
-	$(DelCmd) *.run.xml
-	$(DelCmd) "Samples\*.pdf"
-
+	$(foreach var, $(CleanWorkExt), find . -name $(var) -delete;)
+	$(DelCmd) ./Samples/*-crop.pdf
