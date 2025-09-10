@@ -2,7 +2,7 @@ CleanWorkExt := *.aux *.auxlock *.log *.toc *.nav *.snm *.out *.vrb *.idx *.ilg 
 PdfLaTeX := pdflatex
 PdfCrop := pdfcrop
 Biber := biber
-DelCmd := rm -f
+DelCmd := del /s /q
 
 
 CroppedSamples :=\
@@ -49,6 +49,18 @@ clean: cleanwork
 
 
 cleanwork:
-	$(foreach var, $(CleanWorkExt), $(DelCmd) ./$(var);)
-	$(foreach var, $(CleanWorkExt), $(DelCmd) ./Samples/$(var);)
-	$(DelCmd) ./Samples/*-crop.pdf
+	$(DelCmd) *.bak
+	$(DelCmd) *.aux
+	$(DelCmd) *.auxlock
+	$(DelCmd) *.log
+	$(DelCmd) *.toc
+	$(DelCmd) *.nav
+	$(DelCmd) *.snm
+	$(DelCmd) *.out
+	$(DelCmd) *.vrb
+	$(DelCmd) *.lst
+	$(DelCmd) *.bbl
+	$(DelCmd) *.bcf
+	$(DelCmd) *.blg
+	$(DelCmd) *.run.xml
+	$(DelCmd) "Samples\*.pdf"
