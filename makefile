@@ -1,8 +1,11 @@
-CleanWorkExt := *.aux *.auxlock *.log *.toc *.nav *.snm *.out *.vrb *.idx *.ilg *.ind *.glo *.gls *.bbl *.bcf *.blg *.hd *.run.xml 
 PdfLaTeX := pdflatex
 PdfCrop := pdfcrop
 Biber := biber
-DelCmd := del /s /q
+ifeq ($(OS),Windows_NT) 
+	DelCmd := del /s /q
+else
+	DelCmd := rm -f
+endif
 
 
 CroppedSamples :=\
